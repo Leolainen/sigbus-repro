@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "moduleDetection": "force",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "extends": "./tsconfig.base.json"
+}

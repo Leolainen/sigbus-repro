@@ -1,0 +1,28 @@
+{
+  "name": "css",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/css/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/css",
+        "main": "libs/css/src/index.ts",
+        "tsConfig": "libs/css/tsconfig.lib.json",
+        "assets": ["libs/css/*.md"]
+      }
+    },
+    "test": {
+      "cache": true,
+      "executor": "@nx-bun/nx:test",
+      "inputs": ["default"],
+      "options": {
+        "config": "{workspaceRoot}/bunfig.toml"
+      }
+    },
+    "version": {}
+  }
+}

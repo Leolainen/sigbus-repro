@@ -1,0 +1,61 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "defaultBase": "master",
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*"]
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "plugin": "@nx/vite/plugin",
+      "options": {
+        "serveTargetName": "serve",
+        "testTargetName": "test",
+        "previewTargetName": "preview",
+        "serveStaticTargetName": "serve-static"
+      }
+    },
+    {
+      "plugin": "@nx/rollup/plugin",
+      "options": {
+        "buildTargetName": "rollup-build"
+      }
+    }
+  ],
+  "generators": {
+    "@nx/react": {
+      "library": {
+        "unitTestRunner": "none"
+      }
+    },
+    "@nx/js": {
+      "library": {
+        "unitTestRunner": "none"
+      }
+    }
+  },
+  "targetDefaults": {
+    "@nx/vite:build": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["default", "^default"]
+    },
+    "nx-release-publish": {
+      "cache": false,
+      "options": {
+        "packageRoot": "dist/{projectRoot}",
+        "registry": "https://some-private-registry.com"
+      }
+    }
+  },
+  "release": {
+    "version": {
+      "preVersionCommand": "bunx nx run-many -t build"
+    }
+  }
+}

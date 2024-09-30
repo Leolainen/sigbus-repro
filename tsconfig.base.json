@@ -1,0 +1,21 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "moduleResolution": "bundler",
+        "target": "ESNext",
+        "module": "ESNext",
+        "lib": [
+            "ESNext"
+        ],
+        "skipLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@org/components": [
+                "libs/components/src/index.ts"
+            ],
+            "@org/css": [
+                "libs/css/src/index.ts"
+            ]
+        }
+    }
+}
